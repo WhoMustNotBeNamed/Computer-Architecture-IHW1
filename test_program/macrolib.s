@@ -59,43 +59,43 @@ str:
 
 # Очистка регистра
 .macro clean(%x)
-	li		%x 0
+	li	%x 0
 .end_macro
 
 # Вызов подпрограммы, которая читаем n
 .macro input_n(%x)
-	la		t4 %x			# Адрес n в t4
+	la	t4 %x			# Адрес n в t4
 	jal     input_n	
 .end_macro
 
 # Вызов подпрограммы, которая читаем вводимый массив
 .macro input_arr(%x, %y)
-	la		t0 %x			# Указатель элемента массива
- 	lw		t3 %y			# Число элементов массива
-	jal		input_arr	
+	la	t0 %x			# Указатель элемента массива
+ 	lw	t3 %y			# Число элементов массива
+	jal	input_arr	
 .end_macro
 
 # Вызов подпрограммы, которая ищет минимальный элемент массива
 .macro find_min(%n, %min, %array)
-	la		t0 %array		# Указатель элемента массива
-	lw		t3 %n			# Число элементов массива
-	la		t6 %min		        # Адрес min_number в t4
-	jal		find_min	
+	la	t0 %array		# Указатель элемента массива
+	lw	t3 %n			# Число элементов массива
+	la	t6 %min		        # Адрес min_number в t4
+	jal	find_min	
 .end_macro
 
 # Вызов подпрограммы, которая создает массив B
 .macro create_new_array(%n, %array_A, %array_B, %min)
-	la		t0 %array_A		# Указатель элемента массива A
-	la		t1 %array_B		# Указатель элемента массива B
-	lw		t3 %n			# Число элементов массива
-	lw		t4 %min	# Адрес min_number в t4
-	jal		create_new_array	
+	la	t0 %array_A		# Указатель элемента массива A
+	la	t1 %array_B		# Указатель элемента массива B
+	lw	t3 %n			# Число элементов массива
+	lw	t4 %min	# Адрес min_number в t4
+	jal	create_new_array	
 .end_macro
 
 # Вызов подпрограммы, которая выводит результат
 .macro output(%x, %y)
-	la		t1 %x                   # Указатель элемента массива B
-	lw		t3 %y			# Число элементов массива
+	la	t1 %x                   # Указатель элемента массива B
+	lw	t3 %y			# Число элементов массива
 	jal     output
 .end_macro
 
@@ -109,8 +109,8 @@ str:
 
 # Добавление элемента в массив
 .macro array_add(%x, %y)
-	li 		a0 %x
-	sw 		a0(%y)
+	li 	a0 %x
+	sw 	a0(%y)
 	addi 	%y %y 4
 .end_macro
 
