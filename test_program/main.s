@@ -7,10 +7,10 @@
 
 main:
 .data
-	.align  2				# Выравнивание на границу слова
-	n1:		.word	0		# Число введенных элементов массива
-	array_A1:	.space 64		# Массив А
-	array_B1:	.space 64		# Массив B
+	.align  2				        # Выравнивание на границу слова
+	n1:              .word	0		# Число введенных элементов массива
+	array_A1:       .space 64		# Массив А
+	array_B1:       .space 64		# Массив B
 	min_number1:	.word	0		# Минимальное значение
 	first_number:	.word 0			# Первый элемент массива
 	
@@ -23,6 +23,11 @@ main:
 	array_A3:        .space 64		# Массив А
 	array_B3:        .space 64		# Массив B
 	min_number3:     .word	0		# Минимальное значение
+
+	n4:              .word	0		# Число введенных элементов массива
+	array_A4:        .space 64		# Массив А
+	array_B4:        .space 64		# Массив B
+	min_number4:     .word	0		# Минимальное значение
 
 .text	
 	print_str("Test #1")
@@ -101,5 +106,29 @@ main:
 	newline
 	output(array_B3, n3)
 	newline
+	print_str("______________")
+	newline
+
+	print_str("Test #4")
+	newline
+	print_str("n = 3")
+	newline
+	# Инициализация n
+	la	t4 n4
+	li 	a0 3
+	sw	a0 (t4)
+	print_str("Array A: [1 2 3]")
+	newline
+	print_str("Expected result [1 2 3]")
+	la	t4 array_A4
+	array_add(1, t4)
+	array_add(2, t4)
+	array_add(3, t4)
+	clean(t4)
+	clean(a0)	
+	find_min(n4, min_number4, array_A4)
+	create_new_array(n4, array_A4, array_B4, min_number4)				
+	newline
+	output(array_B4, n4)
 	
 	exit				# Завершение программы
