@@ -1,6 +1,4 @@
 .include "macrolib.s"
-.include "input_n.s"
-.include "input_arr.s"
 .include "find_min.s"
 .include "create_new_array.s"
 .include "output.s"
@@ -25,7 +23,7 @@ main:
 	array_A3:        .space 64		# Массив А
 	array_B3:        .space 64		# Массив B
 	min_number3:     .word	0		# Минимальное значение
-	
+
 .text	
 	print_str("Test #1")
 	newline
@@ -47,7 +45,6 @@ main:
 	clean(t4)
 	clean(a0)	
 	find_min(n1, min_number1, array_A1)
-	# ������� ������ B
 	create_new_array(n1, array_A1, array_B1, min_number1)			
 	newline
 	output(array_B1, n1)					
