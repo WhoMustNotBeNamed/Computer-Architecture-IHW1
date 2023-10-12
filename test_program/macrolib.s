@@ -88,7 +88,7 @@ str:
 	la	t0 %array_A		# Указатель элемента массива A
 	la	t1 %array_B		# Указатель элемента массива B
 	lw	t3 %n			# Число элементов массива
-	lw	t4 %min	# Адрес min_number в t4
+	lw	t4 %min			# Адрес min_number в t4
 	jal	create_new_array	
 .end_macro
 
