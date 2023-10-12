@@ -1,8 +1,6 @@
 .global find_min
 
 find_min:
-	la		t0 array_A		# Указатель элемента массива
-	lw		t3 n			# Число элементов массива
 	lw		s1 (t0)			# Вытаскиваем элемент массива и кладем его в t5
 	la		t4 first_number	# Адрес first_number в t4
 	sw		s1 (t4)			# Загрузка first_number в память на хранение
@@ -15,12 +13,12 @@ back2:
 	addi	t0 t0 4			# Увеличим адрес на размер слова в байтах
 	addi	t3 t3 -1		# Уменьшим количество оставшихся элементов на 1
 	bnez	t3 find1		# Если осталось больше 0
-	la		t4 min_number	# Адрес min_number в t4
-	sw		s1 (t4)			# Загрузка min_number в память на хранение
+	sw		s1 (t6)			# Загрузка min_number в память на хранение
 	clean(t0)				# Очистка t0
 	clean(t3)				# Очистка t3
 	clean(t4)				# Очистка t4
 	clean(t5)				# Очистка t5
+	clean(t6)				# Очистка t6
 	clean(s1)				# Очистка s1
 	ret
 	

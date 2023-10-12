@@ -76,8 +76,11 @@ str:
 .end_macro
 
 # Вызов подпрограммы, которая ищет минимальный элемент массива
-.macro find_min
-        jal     find_min	
+.macro find_min(%n, %min, %array)
+	la	t0 %array		# Указатель элемента массива
+	lw	t3 %n			# Число элементов массива
+	la	t6 %min		        # Адрес min_number в t4
+	jal	find_min	
 .end_macro
 
 # Вызов подпрограммы, которая создает массив B
